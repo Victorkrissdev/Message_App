@@ -1,0 +1,145 @@
+/* ---------- GLOBAL PAGE BACKGROUND ---------- */
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 0;
+
+    /* Bible Background Image */
+    background-image: url('/static/templates/images/ivan-sabayuki-ZB7PHTn0Zvk-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Purple Worship Overlay */
+    background-color: rgba(75, 0, 130, 0.25);
+    background-blend-mode: overlay;
+    color: white;
+}
+
+/* ---------- FORM CONTAINER ---------- */
+
+.container {
+    max-width: 650px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.18);
+    padding: 25px 30px;
+    border-radius: 18px;
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    animation: fadeIn 1.2s ease;
+    color: white;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- HEADINGS ---------- */
+
+h1, h2 {
+    text-align: center;
+    color: gold;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* ---------- LABELS ---------- */
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: gold;
+}
+
+/* ---------- INPUT & TEXTAREA ---------- */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: 1px solid gold;
+    background: rgba(255, 255, 255, 0.88);
+    font-size: 15px;
+    box-sizing: border-box;
+    color: #4b0082;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+::placeholder {
+    color: #8b66c4;
+}
+
+/* ---------- SUBMIT BUTTON ---------- */
+
+button,
+.btn-primary {
+    margin-top: 18px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: gold;
+    color: #4b0082;
+    transition: 0.3s ease;
+}
+
+button:hover,
+.btn-primary:hover {
+    background-color: #e6c200;
+    color: #3d006e;
+    transform: scale(1.03);
+}
+
+/* ---------- CHARACTER COUNTER ---------- */
+
+#charCount {
+    font-weight: 500;
+    color: #f7e6ff;
+}
+
+.text-danger {
+    color: #ff4d4d !important;
+}
+
+/* ---------- MESSAGE LIST (ADMIN) ---------- */
+
+.message-list {
+    list-style: none;
+    padding: 0;
+}
+
+.message-item,
+.card {
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    padding: 15px 18px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    color: white;
+}
+
+.message-item strong {
+    display: block;
+    margin-bottom: 5px;
+}
+

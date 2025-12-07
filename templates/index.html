@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prayer & Testimony Form</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Custom Worship Theme Styling -->
+
+</head>
+
+<body>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card p-4">
+                <h2 class="text-center mb-4">Prayer Request & Testimony Form</h2>
+
+                <form action="/submit" method="POST">
+
+                    <!-- Submission Type -->
+                    <div class="mb-3">
+                        <label class="form-label">Submission Type</label>
+                        <select name="type" class="form-select" required>
+                            <option value="" disabled selected>Select one</option>
+                            <option>Prayer Request</option>
+                            <option>Testimony</option>
+                            <option>Thanksgiving</option>
+                            <option>Counseling Request</option>
+                            <option>Question</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <input type="text" name="name" class="form-control" placeholder="Enter your name">
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label class="form-label">Email (optional)</label>
+                        <input type="email" name="email" class="form-control" placeholder="Enter your email">
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number (optional)</label>
+                        <input type="text" name="phone" class="form-control" placeholder="Enter your phone number">
+                    </div>
+
+                    <!-- Category -->
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select name="category" class="form-select">
+                            <option>Healing</option>
+                            <option>Deliverance</option>
+                            <option>Family / Marriage</option>
+                            <option>Financial Breakthrough</option>
+                            <option>Career / Job</option>
+                            <option>Academic Success</option>
+                            <option>Protection</option>
+                            <option>Spiritual Growth</option>
+                            <option>General</option>
+                        </select>
+                    </div>
+
+                    <!-- Urgency -->
+                    <div class="mb-3">
+                        <label class="form-label">Urgency Level</label>
+                        <select name="urgency" class="form-select">
+                            <option>Not Urgent</option>
+                            <option>Important</option>
+                            <option>Very Urgent</option>
+                            <option>Emergency</option>
+                        </select>
+                    </div>
+
+                    <!-- Message Field -->
+                    <div class="mb-3">
+                        <label class="form-label">Your Message</label>
+                        <textarea 
+                            name="message" 
+                            id="message"
+                            class="form-control" 
+                            rows="5" 
+                            maxlength="300" 
+                            required 
+                            placeholder="Enter your message (max 300 characters)..."
+                        ></textarea>
+
+                        <small id="charCount" class="text-light">0 / 300 characters</small>
+                    </div>
+
+                    <!-- Permission -->
+                    <div class="mb-3">
+                        <label class="form-label">Permission to Share Testimony</label>
+                        <select name="permission" class="form-select">
+                            <option>Yes, publicly</option>
+                            <option>Yes, but anonymously</option>
+                            <option>No, keep private</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+
+                </form>
+
+                <div class="text-center mt-4">
+                    <a href="/admin" class="text-decoration-none">Go to Admin Dashboard</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Character Counter Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const messageInput = document.getElementById("message");
+    const counterDisplay = document.getElementById("charCount");
+    const maxChars = 300;
+
+    messageInput.addEventListener("input", function () {
+        const length = this.value.length;
+        counterDisplay.textContent = `${length} / ${maxChars} characters`;
+        counterDisplay.classList.toggle("text-danger", length >= maxChars);
+    });
+});
+</script>
+
+</body>
+</html>

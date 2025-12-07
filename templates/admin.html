@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container mt-4 mb-5">
+    <h1 class="text-center mb-3">Admin Dashboard</h1>
+
+    <div class="text-center mb-4">
+        <a href="/" class="btn btn-warning">Back to Form</a>
+    </div>
+
+    {% if messages %}
+        <div class="row">
+            {% for msg in messages %}
+            <div class="col-md-6 mb-4">
+                <div class="card p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-warning text-dark">{{ msg[1] }}</span>
+                        <small class="text-light">ID: {{ msg[0] }}</small>
+                    </div>
+
+                    <p><strong>Name:</strong> {{ msg[2] or "Anonymous" }}</p>
+                    <p><strong>Email:</strong> {{ msg[3] or "N/A" }}</p>
+                    <p><strong>Phone:</strong> {{ msg[4] or "N/A" }}</p>
+                    <p><strong>Category:</strong> {{ msg[5] }}</p>
+                    <p><strong>Urgency:</strong> {{ msg[6] }}</p>
+
+                    <p><strong>Message:</strong><br>{{ msg[7] }}</p>
+
+                    <p><strong>Permission:</strong> {{ msg[8] }}</p>
+                    <p><small class="text-light">Submitted on: {{ msg[9] }}</small></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center">No messages yet.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>
